@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>{{ x }}</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+<div class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper white">
+            <a href="{{ url_for('index') }}" class="brand-logo center black-text ">logo</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger black-text"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a class="black-text" href="{{ url_for('tech') }}">Tech</a></li>
+            <li><a class="black-text" href="{{ url_for('auto') }}">Auto</a></li>
+            <li><a class="black-text" href="{{ url_for('general') }}">General</a></li>
+            <li>.....</li>
+          </ul>
+        </div>
+    </nav>
+    <ul class="sidenav" id="mobile-demo">
+        <li><a class="black-text" href="{{ url_for('tech') }}">Tech</a></li>
+        <li><a class="black-text" href="{{ url_for('auto') }}">Auto</a></li>
+        <li><a class="black-text" href="{{ url_for('general') }}">General</a></li>
+      </ul>
+</div>
+
+<div class="container">
+    <div class="row">
+       {% for i in l %}
+        <div class="col s12 m10 offset-m1">
+            <div class="card">
+                <div class="card-image">
+                    <img src="{{ i[2] }}">
+                    <span class="card-title"><b>{{ i[0] }}</b></span>
+                </div>
+                <div class="card-content">
+                    <p>{{ i[1] }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+    <footer class="page-footer grey darken-4">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+
+                    <h5 class="white-text">Project by:</h5>
+                    <ul>
+
+                    </ul>
+                </div>
+
+                <div class="col l3 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="white-text" href='login.php'>Login</a></li>
+                        <li><a class="white-text" href="register.php">Register</a></li>
+                        <li><a class="white-text" href="{{ url_for('index') }}">Home</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col s6">
+                        Made using <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+                    </div>
+                    <div class="col s6">
+                        Follow this project on <a class="orange-text text-lighten-3"
+                                                  href="https://github.com/ayush12451">Github</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="javascript">
+        (function ($) {
+            $(function () {
+
+                $('.sidenav').sidenav();
+
+            }); // end of document ready
+        })(jQuery);
+    </script>
+
+</body>
+</html>
