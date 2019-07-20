@@ -13,7 +13,7 @@ for row in rows:
     text = str(txt)
     #text = temp.decode('utf-8')
     url = "https://api.meaningcloud.com/summarization-1.0"
-    payload = "key=d518a279d420c6300446f6179e9a07d8&txt=" + text + "&sentences=5"
+    payload = "key=YOUR_KEY&txt=" + text + "&sentences=5"
     headers = {'content-type': 'application/x-www-form-urlencoded'}
     response = requests.request("POST", url, data=payload, headers=headers)
     x = json.loads(response.text)
